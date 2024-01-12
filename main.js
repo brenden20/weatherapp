@@ -1,7 +1,6 @@
 const wBase = 'https://api.openweathermap.org/data/3.0/onecall?lat='
 const cBase = 'http://api.openweathermap.org/geo/1.0/zip?zip='
 const key = '5d58b93e667e57e2a9646bb685486541'
-const prompt = require('prompt-sync') ()
 
 const getCoords = async () => {
     const zip = prompt('What is the zip code? ')
@@ -30,11 +29,15 @@ const getData = async (lat, lon) => {
             const data = json.current;
             const temp = data.temp
             const feels = data.feels_like
-            console.log(`Current temperature is: ${temp} F \nFeels like: ${feels} F`)
+            const wind = data.wind_speed
+
+            const info = document.createTextNode(`Current temperature is: ${temp} F \nFeels like: ${feels} F \nWind speed: ${wind}`)
+            const div = document.getElementById("info")
+            div.appendChild(info)
+
+            console.log(`Current temperature is: ${temp} F \nFeels like: ${feels} F \nWind speed: ${wind}`)
         }
     } catch(err) {
         console.log(err)
     }
 }
-
-getCoords()
