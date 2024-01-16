@@ -1,6 +1,6 @@
 const wBase = 'https://api.openweathermap.org/data/3.0/onecall?lat='
 const cBase = 'http://api.openweathermap.org/geo/1.0/zip?zip='
-const key = '5d58b93e667e57e2a9646bb685486541'
+const key = 'insert your API key here'
 
 const getCoords = async () => {
     const zip = prompt('What is the zip code? ')
